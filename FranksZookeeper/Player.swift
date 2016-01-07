@@ -32,7 +32,8 @@ public class Player : Hashable, CustomStringConvertible {
         return scores.reduce(0, combine: +)
     }
 
-    // Note that hashValue ignores scores whereas == does not
+    // Note that hashValue ignores scores (so that hashes don't change after inserting into a set/dictionary), whereas == does not.
+    // This is fine because equality implies hashValue equality, but not the other way around.
     public var hashValue: Int {
         return self.name.hashValue
     }
