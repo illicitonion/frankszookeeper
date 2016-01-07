@@ -45,13 +45,17 @@ public class Game {
             if p.junior != nil {
                 let junior = dict[p.junior!]!
                 total += junior.positional
-                p.junior!.scores.append(total + (junior.hedgehogs == 0 ? -1 : 0) + (junior.lions > 1 ? junior.lions : 0))
+                score(p.junior!, totalPositional: total, hedgehogs: junior.hedgehogs, lions: junior.lions)
             } else {
                 total += 4
             }
             let senior = dict[p.senior]!
-            p.senior.scores.append(total + (senior.hedgehogs == 0 ? -1 : 0) + (senior.lions > 1 ? senior.lions : 0))
+            score(p.senior, totalPositional: total, hedgehogs: senior.hedgehogs, lions: senior.lions)
         }
+    }
+
+    func score(player: Player, totalPositional: Int, hedgehogs: Int, lions: Int) {
+        player.scores.append(totalPositional + (hedgehogs == 0 ? -1 : 0) + (lions > 1 ? lions : 0))
     }
 
     public var partnerships: Set<Partnership> {
