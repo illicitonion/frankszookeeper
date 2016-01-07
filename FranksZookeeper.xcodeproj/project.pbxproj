@@ -12,8 +12,12 @@
 		0746BC5E1C3C572900975F87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0746BC5C1C3C572900975F87 /* Main.storyboard */; };
 		0746BC601C3C572900975F87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0746BC5F1C3C572900975F87 /* Assets.xcassets */; };
 		0746BC631C3C572900975F87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0746BC611C3C572900975F87 /* LaunchScreen.storyboard */; };
-		0746BC6E1C3C572A00975F87 /* FranksZookeeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746BC6D1C3C572A00975F87 /* FranksZookeeperTests.swift */; };
 		0746BC791C3C572A00975F87 /* FranksZookeeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746BC781C3C572A00975F87 /* FranksZookeeperUITests.swift */; };
+		0746BC871C3C5BB700975F87 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746BC861C3C5BB700975F87 /* Game.swift */; };
+		0746BC891C3C5BE700975F87 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746BC881C3C5BE700975F87 /* Player.swift */; };
+		0746BC8B1C3C804B00975F87 /* GameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0746BC8A1C3C804B00975F87 /* GameTest.swift */; };
+		07F6F1731C3DC71A00E119C3 /* PlayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F6F1721C3DC71A00E119C3 /* PlayerTest.swift */; };
+		07F6F1751C3DD1B400E119C3 /* Partnership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F6F1741C3DD1B400E119C3 /* Partnership.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +46,15 @@
 		0746BC621C3C572900975F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0746BC641C3C572900975F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0746BC691C3C572900975F87 /* FranksZookeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FranksZookeeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0746BC6D1C3C572A00975F87 /* FranksZookeeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranksZookeeperTests.swift; sourceTree = "<group>"; };
 		0746BC6F1C3C572A00975F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0746BC741C3C572A00975F87 /* FranksZookeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FranksZookeeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0746BC781C3C572A00975F87 /* FranksZookeeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranksZookeeperUITests.swift; sourceTree = "<group>"; };
 		0746BC7A1C3C572A00975F87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0746BC861C3C5BB700975F87 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		0746BC881C3C5BE700975F87 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0746BC8A1C3C804B00975F87 /* GameTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTest.swift; sourceTree = "<group>"; };
+		07F6F1721C3DC71A00E119C3 /* PlayerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTest.swift; sourceTree = "<group>"; };
+		07F6F1741C3DD1B400E119C3 /* Partnership.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Partnership.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,9 @@
 				0746BC5F1C3C572900975F87 /* Assets.xcassets */,
 				0746BC611C3C572900975F87 /* LaunchScreen.storyboard */,
 				0746BC641C3C572900975F87 /* Info.plist */,
+				0746BC861C3C5BB700975F87 /* Game.swift */,
+				0746BC881C3C5BE700975F87 /* Player.swift */,
+				07F6F1741C3DD1B400E119C3 /* Partnership.swift */,
 			);
 			path = FranksZookeeper;
 			sourceTree = "<group>";
@@ -110,8 +121,9 @@
 		0746BC6C1C3C572900975F87 /* FranksZookeeperTests */ = {
 			isa = PBXGroup;
 			children = (
-				0746BC6D1C3C572A00975F87 /* FranksZookeeperTests.swift */,
 				0746BC6F1C3C572A00975F87 /* Info.plist */,
+				0746BC8A1C3C804B00975F87 /* GameTest.swift */,
+				07F6F1721C3DC71A00E119C3 /* PlayerTest.swift */,
 			);
 			path = FranksZookeeperTests;
 			sourceTree = "<group>";
@@ -256,7 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0746BC891C3C5BE700975F87 /* Player.swift in Sources */,
 				0746BC5B1C3C572900975F87 /* ViewController.swift in Sources */,
+				07F6F1751C3DD1B400E119C3 /* Partnership.swift in Sources */,
+				0746BC871C3C5BB700975F87 /* Game.swift in Sources */,
 				0746BC591C3C572900975F87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0746BC6E1C3C572A00975F87 /* FranksZookeeperTests.swift in Sources */,
+				07F6F1731C3DC71A00E119C3 /* PlayerTest.swift in Sources */,
+				0746BC8B1C3C804B00975F87 /* GameTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +500,7 @@
 				0746BC7F1C3C572A00975F87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0746BC801C3C572A00975F87 /* Build configuration list for PBXNativeTarget "FranksZookeeperTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +509,7 @@
 				0746BC821C3C572A00975F87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0746BC831C3C572A00975F87 /* Build configuration list for PBXNativeTarget "FranksZookeeperUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +518,7 @@
 				0746BC851C3C572A00975F87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

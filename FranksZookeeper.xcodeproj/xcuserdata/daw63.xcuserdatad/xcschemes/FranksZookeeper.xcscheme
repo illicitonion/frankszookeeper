@@ -47,6 +47,11 @@
                BlueprintName = "FranksZookeeperUITests"
                ReferencedContainer = "container:FranksZookeeper.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "FranksZookeeperUITests/testExample()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
