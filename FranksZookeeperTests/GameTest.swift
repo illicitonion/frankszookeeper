@@ -63,7 +63,7 @@ class GameTest: XCTestCase {
         XCTAssertEqual(p1.score, 0)
     }
 
-    func testScoreSecondRound_positionalOnly() {
+    func testScoreSecondRound_even_positionalOnly() {
         let p1 = Player(name: "Cat")
         let p2 = Player(name: "Peter")
         let p3 = Player(name: "Anna")
@@ -82,7 +82,7 @@ class GameTest: XCTestCase {
         XCTAssertEqual(p1.score, 3)
     }
 
-    func testScoreSecondRound_positionalAndHedgehogs() {
+    func testScoreSecondRound_even_positionalAndHedgehogs() {
         let p1 = Player(name: "Cat")
         let p2 = Player(name: "Peter")
         let p3 = Player(name: "Anna")
@@ -103,7 +103,7 @@ class GameTest: XCTestCase {
         assertSetEquals(Set<Partnership>([Partnership(senior: p4, junior: p1), Partnership(senior: p2, junior: p3)]), g.partnerships)
     }
 
-    func testScoreSecondRound_positionalAndHedgehogsAndLions() {
+    func testScoreSecondRound_even_positionalAndHedgehogsAndLions() {
         let p1 = Player(name: "Cat")
         let p2 = Player(name: "Peter")
         let p3 = Player(name: "Anna")
@@ -122,6 +122,30 @@ class GameTest: XCTestCase {
         XCTAssertEqual(p1.score, 6)
 
         assertSetEquals(Set<Partnership>([Partnership(senior: p4, junior: p1), Partnership(senior: p3, junior: p2)]), g.partnerships)
+    }
+
+    func testScoreSecondRound_odd_positionalAndHedgehogsAndLions() {
+        let p1 = Player(name: "Cat")
+        let p2 = Player(name: "Peter")
+        let p3 = Player(name: "Anna")
+        let p4 = Player(name: "Daniel")
+        let p5 = Player(name: "Mjark")
+        let g = Game(withPlayers: [p1, p2, p3, p4, p5])
+        g.scoreFirstRound(p3, p4, p5, p2, p1)
+        g.scoreSubsequentRound(
+            (player: p5, hedgehogs: 1, lions: 0),
+            (player: p3, hedgehogs: 1, lions: 0),
+            (player: p4, hedgehogs: 1, lions: 2),
+            (player: p2, hedgehogs: 1, lions: 1),
+            (player: p1, hedgehogs: 1, lions: 2)
+        )
+        XCTAssertEqual(p5.score, 12)
+        XCTAssertEqual(p3.score, 9)
+        XCTAssertEqual(p4.score, 11)
+        XCTAssertEqual(p2.score, 7)
+        XCTAssertEqual(p1.score, 6)
+
+        assertSetEquals(Set<Partnership>([Partnership(senior: p5, junior: p1), Partnership(senior: p4, junior: p2), Partnership(only: p3)]), g.partnerships)
     }
 
     func testPartnerships_even() {
