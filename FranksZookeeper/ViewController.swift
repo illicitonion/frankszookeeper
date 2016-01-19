@@ -112,7 +112,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
 
     func updateButtons() {
         self.startGameButton?.enabled = self.uniqueNames.count > 3
-        self.addPlayerButton?.enabled = self.uniqueNames.count < 8
+        self.addPlayerButton?.enabled = self.uniqueNames.count < 7
         self.collectionView?.reloadData()
     }
 
