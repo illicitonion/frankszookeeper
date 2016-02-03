@@ -22,7 +22,7 @@ public class Game {
         return self.players[0].scores.count
     }
 
-    public func scoreFirstRound(orderedPlayers: Player...) {
+    public func scoreFirstRound(orderedPlayers: [Player]) {
         var playersForOrdering = orderedPlayers
         playersForOrdering.removeLast().scores.append(0)
         for (index, player) in playersForOrdering.enumerate() {
@@ -58,11 +58,11 @@ public class Game {
         player.scores.append(totalPositional + (hedgehogs == 0 ? -1 : 0) + (lions > 1 ? lions : 0))
     }
 
-    public var partnerships: Set<Partnership> {
+    public var partnerships: [Partnership] {
         if round == 0 {
-            return Set<Partnership>(self.players.map({Partnership(only: $0)}))
+            return self.players.map({Partnership(only: $0)})
         }
-        var ps = Set<Partnership>()
+        var ps = [Partnership]()
         var sorted = self.players.sort({
             if $0.score > $1.score {
                 return true
@@ -85,9 +85,9 @@ public class Game {
 
         while !sorted.isEmpty {
             if sorted.count == 1 {
-                ps.insert(Partnership(only: sorted.removeFirst()))
+                ps.append(Partnership(only: sorted.removeFirst()))
             } else {
-                ps.insert(Partnership(senior: sorted.removeFirst(), junior: sorted.removeLast()))
+                ps.append(Partnership(senior: sorted.removeFirst(), junior: sorted.removeLast()))
             }
         }
         return ps

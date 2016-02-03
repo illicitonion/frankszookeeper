@@ -56,7 +56,7 @@ class GameTest: XCTestCase {
         let p3 = Player(name: "Anna")
         let p4 = Player(name: "Daniel")
         let g = Game(withPlayers: [p1, p2, p3, p4])
-        g.scoreFirstRound(p3, p4, p2, p1)
+        g.scoreFirstRound([p3, p4, p2, p1])
         XCTAssertEqual(p3.score, 4)
         XCTAssertEqual(p4.score, 3)
         XCTAssertEqual(p2.score, 2)
@@ -69,7 +69,7 @@ class GameTest: XCTestCase {
         let p3 = Player(name: "Anna")
         let p4 = Player(name: "Daniel")
         let g = Game(withPlayers: [p1, p2, p3, p4])
-        g.scoreFirstRound(p3, p4, p2, p1)
+        g.scoreFirstRound([p3, p4, p2, p1])
         g.scoreSubsequentRound(
             (player: p3, hedgehogs: 0, lions: 0),
             (player: p4, hedgehogs: 0, lions: 0),
@@ -88,7 +88,7 @@ class GameTest: XCTestCase {
         let p3 = Player(name: "Anna")
         let p4 = Player(name: "Daniel")
         let g = Game(withPlayers: [p1, p2, p3, p4])
-        g.scoreFirstRound(p3, p4, p2, p1)
+        g.scoreFirstRound([p3, p4, p2, p1])
         g.scoreSubsequentRound(
             (player: p3, hedgehogs: 0, lions: 0),
             (player: p4, hedgehogs: 1, lions: 0),
@@ -109,7 +109,7 @@ class GameTest: XCTestCase {
         let p3 = Player(name: "Anna")
         let p4 = Player(name: "Daniel")
         let g = Game(withPlayers: [p1, p2, p3, p4])
-        g.scoreFirstRound(p3, p4, p2, p1)
+        g.scoreFirstRound([p3, p4, p2, p1])
         g.scoreSubsequentRound(
             (player: p3, hedgehogs: 1, lions: 0),
             (player: p4, hedgehogs: 1, lions: 2),
@@ -131,7 +131,7 @@ class GameTest: XCTestCase {
         let p4 = Player(name: "Daniel")
         let p5 = Player(name: "Mjark")
         let g = Game(withPlayers: [p1, p2, p3, p4, p5])
-        g.scoreFirstRound(p3, p4, p5, p2, p1)
+        g.scoreFirstRound([p3, p4, p5, p2, p1])
         g.scoreSubsequentRound(
             (player: p5, hedgehogs: 1, lions: 0),
             (player: p3, hedgehogs: 1, lions: 0),
@@ -157,7 +157,7 @@ class GameTest: XCTestCase {
 
         assertSetEquals(Set<Partnership>([Partnership(only: p1), Partnership(only: p2), Partnership(only: p3), Partnership(only: p4)]), g.partnerships)
 
-        g.scoreFirstRound(p3, p4, p2, p1)
+        g.scoreFirstRound([p3, p4, p2, p1])
         assertSetEquals(Set<Partnership>([Partnership(senior: p3, junior: p1), Partnership(senior: p4, junior: p2)]), g.partnerships)
     }
 
@@ -171,7 +171,7 @@ class GameTest: XCTestCase {
 
         assertSetEquals(Set<Partnership>([Partnership(only: p1), Partnership(only: p2), Partnership(only: p3), Partnership(only: p4), Partnership(only: p5)]), g.partnerships)
 
-        g.scoreFirstRound(p3, p4, p5, p2, p1)
+        g.scoreFirstRound([p3, p4, p5, p2, p1])
         assertSetEquals(Set<Partnership>([Partnership(senior: p3, junior: p1), Partnership(senior: p4, junior: p2), Partnership(only: p5)]), g.partnerships)
     }
 
