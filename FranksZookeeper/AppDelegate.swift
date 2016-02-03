@@ -12,10 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var nav: UINavigationController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        self.nav = UINavigationController.init(rootViewController: ViewController.init())
+        self.nav!.title = "Add Players"
+        self.window!.rootViewController = nav
+        self.window!.makeKeyAndVisible()
+
         return true
     }
 

@@ -17,11 +17,15 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     var addPlayerButton: UIButton?
     var startGameButton: UIButton?
 
-    required init?(coder aDecoder: NSCoder) {
+    required init() {
         self.names = [String]()
         self.uniqueNames = Set<String>()
 
-        super.init(coder: aDecoder)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    convenience required init(coder: NSCoder) {
+        self.init()
     }
 
     override func viewDidLoad() {
@@ -104,14 +108,13 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
 
     func startGame(sender: UIButton!) {
-        let alert = UIAlertController(title: "Sorry!", message: "Not yet implemented", preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
-        alert.addAction(cancelAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        let gameViewController = GameViewController.init(game: Game(withPlayers: self.names.map({ Player(name: $0) })))
+        self.navigationController?.pushViewController(gameViewController, animated: false)
     }
 
     func updateButtons() {
-        self.startGameButton?.enabled = self.uniqueNames.count > 3
+        //self.startGameButton?.enabled = self.uniqueNames.count > 3
+        self.startGameButton?.enabled = true
         self.addPlayerButton?.enabled = self.uniqueNames.count < 7
         self.collectionView?.reloadData()
     }
@@ -135,5 +138,12 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         cell.contentView.addSubview(button)
         cell.backgroundColor = UIColor.lightGrayColor()
         return cell
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier! == "startGame" {
+            let gameViewController = segue.destinationViewController as! GameViewController;
+            gameViewController.game = Game(withPlayers: self.names.map({ Player(name: $0) }))
+        }
     }
 }
