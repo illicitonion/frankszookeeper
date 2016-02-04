@@ -30,7 +30,7 @@ public class Game {
         }
     }
 
-    public func scoreSubsequentRound(orderedPlayers: (player: Player, hedgehogs: Int, lions: Int)...) {
+    public func scoreSubsequentRound(orderedPlayers: [(player: Player, hedgehogs: Int, lions: Int)]) {
         var playersForOrdering = orderedPlayers
         let last = playersForOrdering.removeLast()
 
